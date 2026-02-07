@@ -35,17 +35,7 @@ jobs:
             arch: arm64
             ext: ''
             
-          # macOS Intel
-          - os: macos-13
-            platform: macos
-            arch: amd64
-            ext: ''
-            
-          # macOS Apple Silicon
-          - os: macos-14
-            platform: macos
-            arch: arm64
-            ext: ''
+    
 
     steps:
       - name: 检出代码
