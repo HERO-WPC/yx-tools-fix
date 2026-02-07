@@ -232,7 +232,7 @@ CLOUDFLARE_IPV6_URL = "https://www.cloudflare.com/ips-v6/"
 CLOUDFLARE_IPV6_FILE = "Cloudflare_ipv6.txt"
 
 # 默认测速URL
-DEFAULT_SPEEDTEST_URL = "https://speed.cloudflare.com/__down?measId=&bytes=200000000"
+DEFAULT_SPEEDTEST_URL = "https://е.eu.org/300.zip"
 
 # Cloudflare IPv6 地址段（内置）
 # 数据来源：https://www.cloudflare.com/ips-v6/
@@ -4191,7 +4191,7 @@ def detect_available_regions():
         "-tl", "9999",  # 高延迟阈值
         "-f", CLOUDFLARE_IP_FILE,
         "-httping",  # 使用HTTPing模式获取地区码
-        "-url", "https://jhb.ovh",
+        "-url", "https://speed.cloudflare.com/",
         "-o", "region_scan.csv"  # 输出到地区扫描文件
     ])
     
