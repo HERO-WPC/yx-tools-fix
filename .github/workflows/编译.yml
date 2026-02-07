@@ -82,12 +82,12 @@ jobs:
           path: dist/CloudflareSpeedTest-${{ matrix.platform }}-${{ matrix.arch }}${{ matrix.ext }}
           retention-days: 30
 
-  # 创建 Release（当推送 tag 时）
+  # 创建 Release（）
   release:
     name: Create Release
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
       packages: write
@@ -111,8 +111,6 @@ jobs:
             artifacts/CloudflareSpeedTest-windows-amd64/CloudflareSpeedTest-windows-amd64.exe
             artifacts/CloudflareSpeedTest-linux-amd64/CloudflareSpeedTest-linux-amd64
             artifacts/CloudflareSpeedTest-linux-arm64/CloudflareSpeedTest-linux-arm64
-            artifacts/CloudflareSpeedTest-macos-amd64/CloudflareSpeedTest-macos-amd64
-            artifacts/CloudflareSpeedTest-macos-arm64/CloudflareSpeedTest-macos-arm64
           draft: false
           prerelease: false
           generate_release_notes: true
@@ -123,8 +121,6 @@ jobs:
             - **Windows (x64)**: CloudflareSpeedTest-windows-amd64.exe
             - **Linux (x64)**: CloudflareSpeedTest-linux-amd64
             - **Linux (ARM64)**: CloudflareSpeedTest-linux-arm64
-            - **macOS (Intel)**: CloudflareSpeedTest-macos-amd64
-            - **macOS (Apple Silicon)**: CloudflareSpeedTest-macos-arm64
             
             ### 🌟 功能特性
             - 🎯 内置 97 个全球数据中心机场码
